@@ -1,0 +1,51 @@
+# Create project folder & navigate into it
+mkdir crossfit-wod-api && cd crossfit-wod-api
+
+# Create a src folder & navigate into it
+mkdir src && cd src
+
+# Create sub folders
+mkdir controllers && mkdir services && mkdir database && mkdir routes
+
+# Create an index file (entry point of our API)
+touch index.js
+
+# We're currently in the src folder, so we need to move one level up first 
+cd .. 
+
+# Create package.json file 
+npm init -y
+
+# Dev Dependencies 
+npm i -D nodemon 
+
+# Dependencies 
+npm i express
+
+# In src/index.js 
+add code.
+
+#Integrate a new script called "dev" inside package.json:
+
+# mkdir src/v1
+/api/v1/
+
+# Get the path to your current directory (copy it) 
+pwd 
+
+# Move "routes" into "v1" (insert the path from above into {pwd}) 
+mv {pwd}/src/routes {pwd}/src/v1
+
+# In /src/v1/routes 
+touch index.js
+
+
+# Create a utils file inside our database directory 
+touch src/database/utils.js
+
+# First five parameters are for SQL Server / MSSQL connection.
+pool is optional, it will be used for Sequelize connection pool configuration:
+max: maximum number of connection in pool
+min: minimum number of connection in pool
+idle: maximum time, in milliseconds, that a connection can be idle before being released
+acquire: maximum time, in milliseconds, that pool will try to get connection before throwing error
