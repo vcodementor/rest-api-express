@@ -9,26 +9,9 @@ import {
 
 const userRoutes = express.Router();
 
-/**
- * @swagger
- * components:
- *  schemas:
- *     User:
- *      type: object
- *      properties:
- *          id:
- *              type: integer
- *              description: User id
- *          name:
- *              type: string
- *              description: User name
- *     example:
- *          id: 1
- *          name: vcodementor
- */
 
 /**
- * @swagger
+ * @openapi
  * /users:
  *  get:
  *     summary: Get all users
@@ -43,13 +26,13 @@ userRoutes.get("/users", getUsers);
 
 /**
  * @swagger
- * /users/{id}:
+ * /users/{userId}:
  *  get:
  *     summary: Get user detail
  *     description: Get user detail
  *     parameters:
  *       - in: path
- *         name: id
+ *         name: userId
  *         schema:
  *           type: integer
  *         required: true
@@ -63,8 +46,8 @@ userRoutes.get("/users", getUsers);
 userRoutes.get("/users/:userId",getUser);
 
 /**
- * @swagger
- * /users:
+ * @openapi
+ * /user:
  *  post:
  *      summary: Add user
  *      description: Add user
@@ -76,9 +59,6 @@ userRoutes.get("/users/:userId",getUser);
  *                    $ref: '#/components/schemas/User'
  *                 example:
  *                    name: Rexaurus
- *                    age: 12
- *                    breed: labrador
- *                    type: dog
  *      responses:
  *      200:
  *          description: Success
@@ -88,14 +68,14 @@ userRoutes.get("/users/:userId",getUser);
 userRoutes.post("/user", createUser);
 
 /**
- * @swagger
- * /users/{id}:
- *  put:
+ * @openapi
+ * /users/{userId}:
+ *  patch:
  *     summary: Edit users
  *     description: Edit user
  *     parameters:
  *       - in: path
- *         name: id
+ *         name: userId
  *         schema:
  *           type: integer
  *         required: true
@@ -108,9 +88,6 @@ userRoutes.post("/user", createUser);
  *              $ref: '#/components/schemas/User'
  *           example:
  *              name: Rexaurus
- *              age: 12
- *              breed: labrador
- *              type: dog
  *     responses:
  *     200:
  *        description: Success
@@ -121,14 +98,14 @@ userRoutes.post("/user", createUser);
 userRoutes.patch("/user/:userId", updateUser);
 
 /**
- * @swagger
- * /users/{id}:
+ * @openapi
+ * /users/{userId}:
  *  delete:
  *     summary: Delete User
  *     description: Delete User
  *     parameters:
  *       - in: path
- *         name: id
+ *         name: userId
  *         schema:
  *           type: integer
  *         required: true

@@ -5,8 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon --experimental-modules --es-module-specifier-resolution=node ./src/app.js",
-    "debug": "set DEBUG=* & --experimental-modules --es-module-specifier-resolution=node ./src/app.js",
+    "start": "nodemon --es-module-specifier-resolution=node ./src/app.js",
+    "debug": "set DEBUG=* & --es-module-specifier-resolution=node ./src/app.js",
     "test": "jest"
   },
   "keywords": [],

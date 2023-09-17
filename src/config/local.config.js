@@ -4,7 +4,7 @@ const config = {
             host: process.env.DB_HOST || 'host',
             name: process.env.DB_NAME || 'dbName',
             user: process.env.DB_USER || 'username',
-            password: process.env.DB_PASS || '1234',
+            password: process.env.DB_PASS || 'password',
             port: process.env.DB_PORT || '3306',
             dialect: process.env.DB_DIALECT || 'mysql'
         },

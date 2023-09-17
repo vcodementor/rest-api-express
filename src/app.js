@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 import apiCache from 'apicache';
 
 import localConfig from './config/local.config';
-import v1ApiRouter from './api/v1/routes/routes.v1';
+import v1ApiRouter from './api/v1/routes/user.routes';
 import {swaggerDocs} from './swagger/swagger.v1';
 
 dotenv.config();
