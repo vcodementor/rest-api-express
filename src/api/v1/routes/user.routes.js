@@ -7,7 +7,25 @@ import {
   deleteUser,
 } from "../controllers/user.controllers";
 
-const router = express.Router();
+const userRoutes = express.Router();
+
+/**
+ * @swagger
+ * components:
+ *  schemas:
+ *     User:
+ *      type: object
+ *      properties:
+ *          id:
+ *              type: integer
+ *              description: User id
+ *          name:
+ *              type: string
+ *              description: User name
+ *     example:
+ *          id: 1
+ *          name: vcodementor
+ */
 
 /**
  * @swagger
@@ -21,7 +39,7 @@ const router = express.Router();
  *      500:
  *         description: Internal Server Error
  */
-router.get("/users", getUsers);
+userRoutes.get("/users", getUsers);
 
 /**
  * @swagger
@@ -42,7 +60,7 @@ router.get("/users", getUsers);
  *      500:
  *         description: Internal Server Error
  */
-router.get("/users/:userId",getUser);
+userRoutes.get("/users/:userId",getUser);
 
 /**
  * @swagger
@@ -67,7 +85,7 @@ router.get("/users/:userId",getUser);
  *      500:
  *          description: Internal Server Error
  */
-router.post("/user", createUser);
+userRoutes.post("/user", createUser);
 
 /**
  * @swagger
@@ -100,7 +118,7 @@ router.post("/user", createUser);
  *       description: Internal Server Error
  *
  */
-router.patch("/user/:userId", updateUser);
+userRoutes.patch("/user/:userId", updateUser);
 
 /**
  * @swagger
@@ -121,6 +139,6 @@ router.patch("/user/:userId", updateUser);
  *     500:
  *       description: Internal Server Error
  */
-router.delete("/user/:userId", deleteUser);
+userRoutes.delete("/user/:userId", deleteUser);
 
-export default router;
+export default userRoutes;

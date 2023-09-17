@@ -1,12 +1,12 @@
-const fs = require("fs");
+import fs from "fs";
 
-const saveToJsonDB = (filepath,data) => {
+export const saveToJsonDB = (filepath,data) => {
   fs.writeFileSync(filepath, JSON.stringify(data, null, 2), {
     encoding: "utf-8",
   });
 };
 
-const validatorHandler = (req, res, next, schema) => {
+export const validatorHandler = (req, res, next, schema) => {
   const { error } = schema.validate(req.body);
 
   if (error) {
@@ -19,7 +19,7 @@ const validatorHandler = (req, res, next, schema) => {
   next();
 };
 
-const asyncHandler = (cb) => async (req, res, next) => {
+export const asyncHandler = (cb) => async (req, res, next) => {
   try {
       await cb(req, res, next);
   } catch (err) {
@@ -30,10 +30,3 @@ const asyncHandler = (cb) => async (req, res, next) => {
   }
   return true;
 }
-
-module.exports = { 
-  saveToJsonDB ,
-  validatorHandler,
-  asyncHandler
-
-};

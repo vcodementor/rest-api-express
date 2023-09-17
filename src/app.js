@@ -3,13 +3,13 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import apiCache from 'apicache';
 
-import localConfig from './config/local.config'
+import localConfig from './config/local.config';
 import v1ApiRouter from './api/v1/routes/routes.v1';
 import {swaggerDocs} from './swagger/swagger.v1';
 
 dotenv.config();
 
-AppConfig = localConfig.app;
+const AppConfig = localConfig.app;
 
 const app = express();
 const cache = apiCache.middleware;
@@ -42,7 +42,7 @@ function errorHandler(err, req, res, next) {
 }
 
 function onInit(){
-  swaggerDocs(app, AppConfig.port);
+  swaggerDocs(app, AppConfig);
 }
 
 app.listen(AppConfig.port, onInit);

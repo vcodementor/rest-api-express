@@ -5,15 +5,16 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon ./src/app.js",
-    "debug": "set DEBUG=* & node ./src/app.js",
+    "start": "nodemon --experimental-modules --es-module-specifier-resolution=node ./src/app.js",
+    "debug": "set DEBUG=* & --experimental-modules --es-module-specifier-resolution=node ./src/app.js",
     "test": "jest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "@types/node": "^20.6.2"
   },
   "dependencies": {
     "apicache": "^1.6.3",

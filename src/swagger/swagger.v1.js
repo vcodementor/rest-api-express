@@ -1,31 +1,30 @@
-import swaggerJSDoc from "swagger-jsdoc";
-import swaggerUi from "swagger-ui-express";
+import swaggerUI from 'swagger-ui-express'
+import swaggerJSdoc from 'swagger-jsdoc'
 
 // Basic Meta Informations about our API
-const options = {
+const swaggerSpec = (app, AppConfig) => swaggerJSdoc({
   definition: {
     openapi: "3.0.0",
-    info: { title: "Rest API EXPRESS", version: "1.0.0" },
+    info: { 
+      title: "Rest API EXPRESS",
+      version: "1.0.0" 
+    },
+    servers: [
+      {
+          url: `http://localhost:${AppConfig.port}`,
+      }
+    ]
   },
-  apis: ["../api/v1/routes/routes.v1.js"],
-};
-
-// Docs in JSON format
-const swaggerSpec = swaggerJSDoc(options);
+  apis: ['../api/v1/routes/user.routes.js'],
+});
 
 // Function to setup our docs
-const swaggerDocs = (app, port) => {
+export const swaggerDocs = (app, AppConfig) => {
   // Route-Handler to visit our docs
-  app.use("/api/v1/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+  app.use("/api/v1/docs", swaggerUI.serve, swaggerUI.setup(swaggerSpec(app,AppConfig)));
   // Make our docs in JSON format available
   app.get("/api/v1/docs.json", (req, res) => {
-    res.setHeader("Content-Type", "application/json");
-    res.send(swaggerSpec);
+    res.json(swaggerSpec(app,AppConfig));
   });
-
-  console.log(
-    `Version 1 Docs are available on http://localhost:${port}/api/v1/docs`
-  );
 };
 
-export default swaggerDocs;
